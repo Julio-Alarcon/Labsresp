@@ -9,3 +9,9 @@ def calendario(request):
     context={}
     #context['name'] = request.GET['name']
     return render(request, template_name, context)
+
+def salas(request):
+    template_name="salas.html"
+    context={}
+    #context['name'] = request.GET['name']
+    return render(request, template_name, context)

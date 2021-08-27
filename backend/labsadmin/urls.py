@@ -25,7 +25,8 @@ urlpatterns = [
     path('', include('apps.core.urls')),
     path('login/', views.login_view, name="login"),
     path('logout/', views.logout_view, name="logout"),
-    path('calendario/', include('apps.schedules.urls')),
+    path('', include('apps.schedules.urls')),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,8 +1,7 @@
 from django.db import models
-from rest_framework.views import APIView
+from django.contrib.auth.models import User as auth_user
+from datetime import datetime
+import os
 
 # Create your models here.
 
-class hours(models.Model):
-    hours = models.IntegerField()
-    minutes = models.IntegerField()

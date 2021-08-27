@@ -1,0 +1,99 @@
+{% extends '_partials/_base.html' %}
+{% load static %}
+{% block pagetitle %}Pagina en blanco{% endblock %}
+
+{% block title %}Blanco{% endblock %}
+
+{% block breadcumbs %}
+
+<li class="breadcrumb-item text-muted">
+    <a href="" class="text-muted">Horarios</a>
+</li>
+<li class="breadcrumb-item text-muted">
+    <a href="" class="text-muted">Calendario</a>
+</li>
+
+{% endblock %}
+
+{% block content %}
+    <div class="py-4">
+        <div class="form-group row">
+            <div class="col-md-3 ">
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group">
+                        <button class="btn btn-primary font-weight-bold btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sedes</button>
+                        <div class="dropdown-menu" style="">
+                            <a class="dropdown-item" href="#">República</a>
+                            <a class="dropdown-item" href="#">Bellavista</a>
+                            <a class="dropdown-item" href="#">Creativo</a>
+                            <a class="dropdown-item" href="#">Antonio Varas</a>
+                            <a class="dropdown-item" href="#">Los Leones</a>
+                            <a class="dropdown-item" href="#">Casona de las Condes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-custom gutter-b">
+        <div class="card-body">
+            <div class="form-group row">
+                <div class="col-2">
+                    <button type="button" class="btn btn-transparent-primary font-weight-bold font-size-h3 px-4 py-2">Laboratorio 302</button>
+                </div>
+                <div class="col-10">
+                    <div class="ion-range-slider">
+                        <span class="irs irs--flat js-irs-2 irs-with-grid">
+                            <span class="irs">
+                                <span class="irs-line" tabindex="0"></span>
+                                <span class="irs-from" style="visibility: visible; left: 3.8%;">9:30</span>
+                                <span class="irs-from" style="visibility: visible; left: 11.3%;">11:30</span>
+                                <span class="irs-to" style="visibility: visible; left: 40.8%;">15:00</span>
+                                <span class="irs-to" style="visibility: visible; left: 70.8%;">19:00</span>
+                            </span>
+                            <span class="irs-handle" style="left: 5%;"><i></i><i></i><i></i></span>
+                            <span class="irs-handle" style="left: 12.5%;"><i></i><i></i><i></i></span>
+                            <span class="irs-handle" style="left: 42%;"><i></i><i></i><i></i></span>
+                            <span class="irs-handle" style="left: 72%;"><i></i><i></i><i></i></span>
+                            <span class="irs-bar bg-primary text-center font-size-xs" style="left: 6%; width: 7.5%;">42</span>
+                            <span class="irs-bar bg-primary text-center font-size-xs" style="left: 43%; width: 30%;">1</span>
+                        </span>
+                        <input type="hidden" id="kt_slider_3" class="irs-hidden-input" tabindex="-1" readonly="" value="278;800">
+                    </div>
+                </div>
+            </div>
+            <div class="separator separator-dashed separator-border-2 separator-primary my-10"></div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <button type="button" class="btn btn-transparent-primary font-weight-bold font-size-h3 px-4 py-2">Laboratorio 302</button>
+                </div>
+                <div class="col-10">
+                    <div class="ion-range-slider">
+                        <span class="irs irs--flat js-irs-2 irs-with-grid">
+                            <span class="irs">
+                                <span class="irs-line" tabindex="0"></span>
+                                <span class="irs-from" style="visibility: visible; left: 26.2529%;">14:00</span>
+                                <span class="irs-from" style="visibility: visible; left: 42.2529%;">17:00</span>
+                                <span class="irs-to" style="visibility: visible; left: 72.4251%;">19:30</span>
+                                <span class="irs-to" style="visibility: visible; left: 77.4251%;">20:00</span>
+                            </span>
+                            <span class="irs-handle" style="left: 27.5%;"><i></i><i></i><i></i></span>
+                            <span class="irs-handle" style="left: 43.5%;"><i></i><i></i><i></i></span>
+                            <span class="irs-handle" style="left: 73.7%;"><i></i><i></i><i></i></span>
+                            <span class="irs-handle" style="left: 78.7%;"><i></i><i></i><i></i></span>
+                            <span class="irs-bar bg-primary text-center font-size-xs" style="left: 28.5%; width: 16%;">3</span>
+                            <span class="irs-bar bg-primary text-center font-size-xs" style="left: 44.5%; width: 30.1723%;">34</span>
+                            <span class="irs-bar bg-primary text-center font-size-xs" style="left: 74.7%; width: 5%;">3</span>
+                        </span>
+                        <input type="hidden" id="kt_slider_3" class="irs-hidden-input" tabindex="-1" readonly="" value="278;800">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

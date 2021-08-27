@@ -142,6 +142,7 @@ TEMPLATES = [
             'template',
             'apps/authentication/template',
             'apps/core/template',
+            'apps/schedules/template',
             ],
         'APP_DIRS': True,
         'OPTIONS': {

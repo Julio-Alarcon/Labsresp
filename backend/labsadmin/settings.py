@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-qr_5n+&dx%l3-1t)-&m84nw-id707e#@$f9_e*)jdb6*e6ri6+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "labs2021.herokuapp.com"]
 
 
 # Application definition
@@ -46,7 +47,8 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.monitoring',
     'apps.schedules',
-    'apps.licencemanager',
+    'apps.software_manager',
+    'apps.notification',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +88,6 @@ CORS_ALLOW_HEADERS = [
 ]
 
 #CORS_ORIGIN_WHITELIST = ['https://example.com']
-
 
 
 ROOT_URLCONF = 'labsadmin.urls'
@@ -144,6 +145,7 @@ TEMPLATES = [
             'apps/core/template',
             'apps/schedules/template',
             ],
+        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -162,12 +164,33 @@ WSGI_APPLICATION = 'labsadmin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+postgresql = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
+    }
+}
+
+sqlite = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+heroku_postgresql = {'default': dj_database_url.config(
+    conn_max_age=600, ssl_require=True)}
+
+DATABASES = ''
+if os.getenv('DEV_CHANNEL') == 'local':
+    DATABASES = sqlite
+elif os.getenv('DEV_CHANNEL') == 'heroku':
+    DATABASES = heroku_postgresql
+elif os.getenv('DEV_CHANNEL') == 'production':
+    DATABASES = postgresql
 
 
 # Password validation
@@ -214,7 +237,7 @@ STATICFILES_DIRS = [
 ]
 
 # Media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 # Login Required Setting

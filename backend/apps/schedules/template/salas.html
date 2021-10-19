@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Horarios</title>
+</head>
 {% extends '_partials/_base.html' %}
 {% load static %}
 {% block pagetitle %}Pagina en blanco{% endblock %}
@@ -19,118 +26,137 @@
 {% endblock %}
 
 {% block content %}
-<form class="form" id="kt_form_1">
-    <div class="form-group row">
-        <div class="col-lg-4">
-            <label>Nombre:</label>
-            <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                <input type="text" class="form-control" placeholder="Ej: Juanito Perez Silva Enrique"/>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <label>Numero Celular:</label>
-            <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon2-phone"></i></span></div>
-                <input type="text" class="form-control" name="phone" placeholder="Ej: +5691416681" />
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <label>Email:</label>
-            <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-info-circle"></i></span></div>
-                <input type="text" class="form-control" placeholder="Ej: Ejemplo@Ejemplo.ej"/>
+
+<body>
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <div class="card-title">
+                <form class="form" id="DatosPetition" action="formpetition" method="POST">
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label for="name">Nombre:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="la la-user"></i></span>
+                                </div>
+                                <input id="name" name="name_petition" type="text" class="form-control"
+                                    placeholder="Ej: Juanito Perez Silva" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="email">Email:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="la la-info-circle"></i></span>
+                                </div>
+                                <input id="email" name="email_petition" type="email" class="form-control"
+                                    placeholder="Ej: Ejemplo@Ejemplo.ej" />
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="nrc">NRC:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="flaticon2-browser"></i></span>
+                                </div>
+                                <input id="nrc" name="nrc_petition" type="number" class="form-control" name="digits"
+                                    placeholder="Ej: 7573" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-2">
+                            <label for="lab">Laboratorio:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="flaticon2-browser"></i></span>
+                                </div>
+                                <input id="lab" name="lab_petition" type="number" class="form-control" name="digits"
+                                    placeholder="Ej: 301" />
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="pc">Computadores:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="flaticon2-browser"></i></span>
+                                </div>
+                                <input id="pc" name="pc_petition" type="number" class="form-control" name="digits"
+                                    placeholder="Ej: 26" />
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>Hora Inicio:</label>
+                            <div class="input-group date" id="kt_datetimepicker_7_1" data-target-input="nearest">
+                                <input id="times" name="time_start" type="text" class="form-control datetimepicker-input" placeholder="Start date"
+                                    data-target="#kt_datetimepicker_7_1" />
+                                <div class="input-group-append" data-target="#kt_datetimepicker_7_1"
+                                    data-toggle="datetimepicker">
+                                    <span class="input-group-text">
+                                        <i class="ki ki-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>Hora Termino:</label>
+                            <div class="input-group date" id="kt_datetimepicker_7_2" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" placeholder="End date"
+                                    data-target="#kt_datetimepicker_7_2" />
+                                <div class="input-group-append" data-target="#kt_datetimepicker_7_2"
+                                    data-toggle="datetimepicker">
+                                    <span class="input-group-text">
+                                        <i class="ki ki-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <label>Mensaje:</label>
+                            <textarea class="form-control" name="memo" placeholder="Razones para la reserva"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="col-lg-3">
+                            <label>Licencias:</label>
+                            <select class="form-control" name="option">
+                                <option value="">Select</option>
+                                <option>Simio 1</option>
+                                <option>Ej 2</option>
+                                <option>Ej 3</option>
+                                <option>Ej 4</option>
+                                <option>Ej 5</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <div class="g-recaptcha" data-sitekey="6LdnLwgUAAAAAAIb9L3PQlHQgvSCi16sYgbMIMFR"></div>
+                            <div class="form-text text-muted">
+                                To learn more about Google reCaptcha please visit <a class="link"
+                                    href="http://www.google.com/recaptcha" target="_blank">
+                                    http://www.google.com/recaptcha </a>
+                            </div>
+                        </div>
+                        <script src="https://www.google.com/recaptcha/api.js"></script>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2 ml-lg-auto">
+                            <button type="submit" class="btn btn-primary font-weight-bold mr-2">Enviar</button>
+                            <button type="reset" class="btn btn-light-primary font-weight-bold">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-    <div class="form-group row">
-        <div class="col-lg-2">
-            <label>NRC:</label>
-            <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon2-browser"></i></span></div>
-                <input type="text" class="form-control" name="digits" placeholder="Ej: 7573" />
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <label>Computadores:</label>
-            <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon2-browser"></i></span></div>
-                <input type="text" class="form-control" name="digits" placeholder="Ej: 26" />
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <label>Licencias:</label>
-            <div class="form-check checkbox-inline">
-                <label class="checkbox checkbox-outline">
-                    <input type="checkbox" name="checkboxes" />
-                    <span></span>
-                    Simio 1
-                </label>
-                <label class="checkbox checkbox-outline">
-                    <input type="checkbox" name="checkboxes" />
-                    <span></span>
-                    ej 2
-                </label>
-                <label class="checkbox checkbox-outline">
-                    <input type="checkbox" name="checkboxes" />
-                    <span></span>
-                    ej 3
-                </label>
-                <label class="checkbox checkbox-outline">
-                    <input type="checkbox" name="checkboxes" />
-                    <span></span>
-                    ej 4
-                </label>
-                <label class="checkbox checkbox-outline">
-                    <input type="checkbox" name="checkboxes" />
-                    <span></span>
-                    ej 5
-                </label>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <label>Licencias:</label>
-            <select class="form-control" name="option">
-                <option value="">Select</option>
-                <option>Simio 1</option>
-                <option>Ej 2</option>
-                <option>Ej 3</option>
-                <option>Ej 4</option>
-                <option>Ej 5</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-lg-12">
-            <label>Licencias:</label>
-            <textarea class="form-control" name="memo" placeholder="Enter a menu" rows="3"></textarea>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label>Confirmar:</label>
-        <div class="col-lg-9 col-md-9 col-sm-12">
-            <div class="form-check checkbox-inline">
-                <label class="checkbox checkbox-outline">
-                    <input type="checkbox" name="checkbox" />
-                    <span></span>
-                </label>
-            </div>
-            <span class="form-text text-muted">Confirma la informacion</span>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-9 ml-lg-auto">
-            <button type="submit" class="btn btn-primary font-weight-bold mr-2">Validate</button>
-            <button type="reset" class="btn btn-light-primary font-weight-bold">Cancel</button>
-        </div>
-    </div>
-</form>
-
+</body>
 {% endblock %}
 
 {% block scripts %}
 {% endblock %}
+
+</html>

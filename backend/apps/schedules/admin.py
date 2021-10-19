@@ -1,3 +1,5 @@
 from django.contrib import admin
+from apps.schedules.models import Petition, Schedule
 
-# Register your models here.
+admin.site.register(Petition)
+admin.site.register(Schedule)

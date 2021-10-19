@@ -181,9 +181,10 @@
                                 </tr>
                             </tfoot>
                             <tbody>
+                                {% for lab in laboratories %}
                                 <tr class="odd">
                                     <td class="sorting_1 dtr-control"> <button type="button"
-                                            class="btn btn-transparent-primary font-weight-bold font-size-h3 px-4 py-2">301</button>
+                                            class="btn btn-transparent-primary font-weight-bold font-size-h3 px-4 py-2">{{lab.room_name}}</button>
                                     </td>
                                     <td>46</td>
                                     <td>Simio: 24</td>
@@ -216,67 +217,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="even">
-                                    <td class="sorting_1 dtr-control"><button type="button"
-                                            class="btn btn-transparent-primary font-weight-bold font-size-h3 px-4 py-2">302</button>
-                                    </td>
-                                    <td>34</td>
-                                    <td>Simio: 12
-                                        EJ: 2
-                                        EJemplo: 5
-                                    </td>
-                                    <td>
-                                        <div class="ion-range-slider">
-                                            <span class="irs irs--flat js-irs-2 irs-with-grid">
-                                                <span class="irs">
-                                                    <span class="irs-line" tabindex="0"></span>
-                                                    <span class="irs-from"
-                                                        style="visibility: visible; left: 26.2529%;">14:00</span>
-                                                    <span class="irs-from"
-                                                        style="visibility: visible; left: 42.2529%;">17:00</span>
-                                                    <span class="irs-to"
-                                                        style="visibility: visible; left: 72.4251%;">19:30</span>
-                                                    <span class="irs-to"
-                                                        style="visibility: visible; left: 77.4251%;">20:00</span>
-                                                </span>
-                                                <span class="irs-handle"
-                                                    style="left: 27.5%;"><i></i><i></i><i></i></span>
-                                                <span class="irs-handle"
-                                                    style="left: 43.5%;"><i></i><i></i><i></i></span>
-                                                <span class="irs-handle"
-                                                    style="left: 73.7%;"><i></i><i></i><i></i></span>
-                                                <span class="irs-handle"
-                                                    style="left: 78.7%;"><i></i><i></i><i></i></span>
-                                                <span class="irs-bar bg-primary text-center font-size-xs"
-                                                    style="left: 28.5%; width: 16%;">3</span>
-                                                <span class="irs-bar bg-primary text-center font-size-xs"
-                                                    style="left: 44.5%; width: 30.1723%;">34</span>
-                                                <span class="irs-bar bg-primary text-center font-size-xs"
-                                                    style="left: 74.7%; width: 5%;">3</span>
-                                            </span>
-                                            <input type="hidden" id="kt_slider_3" class="irs-hidden-input" tabindex="-1"
-                                                readonly="" value="278;800">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control"><button type="button"
-                                            class="btn btn-transparent-primary font-weight-bold font-size-h3 px-4 py-2">303</button>
-                                    </td>
-                                    <td>42</td>
-                                    <td>Simio: 12</td>
-                                    <td>
-                                        <div class="ion-range-slider">
-                                            <span class="irs irs--flat js-irs-2 irs-with-grid">
-                                                <span class="irs">
-                                                    <span class="irs-line" tabindex="0"></span>
-                                                </span>
-                                            </span>
-                                            <input type="hidden" id="kt_slider_3" class="irs-hidden-input" tabindex="-1"
-                                                readonly="" value="278;800">
-                                        </div>
-                                    </td>
-                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                         <div id="kt_datatable_processing" class="dataTables_processing card" style="display: none;">

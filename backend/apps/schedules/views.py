@@ -2,13 +2,16 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from apps.schedules.forms import FormPetition
+from apps.core.models import Room
 
 # Create your views here.
 
 def calendario(request):
     template_name="calendario.html"
     context={}
-    #context['name'] = request.GET['name']
+    laboratories=Room.objects.all()
+    context['laboratories']=laboratories
+    print(context)
     return render(request, template_name, context)
 
 def reserva(request):

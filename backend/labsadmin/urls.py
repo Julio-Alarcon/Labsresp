@@ -26,7 +26,7 @@ urlpatterns = [
     path('monitoring/', include('apps.monitoring.urls')),
     path('login/', views.login_view, name="login"),
     path('logout/', views.logout_view, name="logout"),
-    path('', include('apps.schedules.urls')),
+    path('schedules/', include('apps.schedules.urls')),
     
 ]
 

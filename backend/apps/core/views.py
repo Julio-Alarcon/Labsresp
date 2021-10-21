@@ -29,10 +29,5 @@ def dashboard(request):
     context['mant_pc'] = 5
     return render(request, template_name, context)
 
-def calendario(request):
-    template_name="calendario.html"
-    context={}
-    #context['name'] = request.GET['name']
-    return render(request, template_name, context)
     
 

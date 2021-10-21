@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from apps.schedules.forms import FormPetition
 from apps.core.models import Room
+from apps.schedules.models import Petition
 
 # Create your views here.
 
@@ -11,7 +12,6 @@ def calendario(request):
     context={}
     laboratories=Room.objects.all()
     context['laboratories']=laboratories
-    print(context)
     return render(request, template_name, context)
 
 def reserva(request):
@@ -29,6 +29,13 @@ def administrar(request):
 def salas(request):
     template_name="salas.html"
     petition_form = FormPetition()
+    context={}
+    #context['name'] = request.GET['name']
+    return render(request, template_name, context)
+
+def admincalendario(request):
+    template_name="admincalendario.html"
+    schedules = Petition.objects.all()
     context={}
     #context['name'] = request.GET['name']
     return render(request, template_name, context)

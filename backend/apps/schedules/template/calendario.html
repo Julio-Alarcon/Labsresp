@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Horarios</title>
-</head>
 {% extends '_partials/_base.html' %}
 {% load static %}
 {% block pagetitle %}Pagina en blanco{% endblock %}
-
-{% block title %}Blanco{% endblock %}
-
 {% block breadcumbs %}
 
 <li class="breadcrumb-item text-muted">
@@ -33,67 +23,10 @@
                         <button class="btn btn-primary font-weight-bold btn-lg dropdown-toggle" type="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sedes</button>
                         <div class="dropdown-menu" style="">
-                            <a class="dropdown-item" href="#">República</a>
-                            <a class="dropdown-item" href="#">Bellavista</a>
-                            <a class="dropdown-item" href="#">Creativo</a>
-                            <a class="dropdown-item" href="#">Antonio Varas</a>
-                            <a class="dropdown-item" href="#">Los Leones</a>
-                            <a class="dropdown-item" href="#">Casona de las Condes</a>
+                            {% for campus in campus %}
+                            <a class="dropdown-item" href="#">{{ campus.name }}</a>
+                            {% endfor %}
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-toolbar">
-                <div class="dropdown dropdown-inline">
-                    <button type="button" class="btn btn-secondary btn-sm font-weight-bold" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="la la-download"></i>Tools</button>
-                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right" style="">
-                        <ul class="navi flex-column navi-hover py-2">
-                            <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">
-                                Export
-                                Tools</li>
-                            <li class="navi-item">
-                                <a href="#" class="navi-link" id="export_print">
-                                    <span class="navi-icon">
-                                        <i class="la la-print"></i>
-                                    </span>
-                                    <span class="navi-text">Print</span>
-                                </a>
-                            </li>
-                            <li class="navi-item">
-                                <a href="#" class="navi-link" id="export_copy">
-                                    <span class="navi-icon">
-                                        <i class="la la-copy"></i>
-                                    </span>
-                                    <span class="navi-text">Copy</span>
-                                </a>
-                            </li>
-                            <li class="navi-item">
-                                <a href="#" class="navi-link" id="export_excel">
-                                    <span class="navi-icon">
-                                        <i class="la la-file-excel-o"></i>
-                                    </span>
-                                    <span class="navi-text">Excel</span>
-                                </a>
-                            </li>
-                            <li class="navi-item">
-                                <a href="#" class="navi-link" id="export_csv">
-                                    <span class="navi-icon">
-                                        <i class="la la-file-text-o"></i>
-                                    </span>
-                                    <span class="navi-text">CSV</span>
-                                </a>
-                            </li>
-                            <li class="navi-item">
-                                <a href="#" class="navi-link" id="export_pdf">
-                                    <span class="navi-icon">
-                                        <i class="la la-file-pdf-o"></i>
-                                    </span>
-                                    <span class="navi-text">PDF</span>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -110,13 +43,6 @@
                     <div class="col-lg-2 mb-lg-0 mb-6">
                         <label>Computadores</label>
                         <input type="text" class="form-control datatable-input" placeholder="Ej: 46" data-col-index="1">
-                    </div>
-                    <div class="col-lg-2 mb-lg-0 mb-6">
-                        <label>Licencias</label>
-                        <select class="form-control datatable-input" data-col-index="2">
-                            <option value="">Select</option>
-                            <option value="Simio">Simio</option>
-                        </select>
                     </div>
                     <div class="col-lg-2 mb-lg-0 mb-6">
                         <label>Fecha</label>
@@ -163,10 +89,6 @@
                                         colspan="1" style="width: 30px;"
                                         aria-label="Pc: activate to sort column ascending">Pc</th>
                                     <th class="sorting" tabindex="0" aria-controls="kt_datatable" rowspan="1"
-                                        colspan="1" style="width: 80px;"
-                                        aria-label="Licencias: activate to sort column ascending">
-                                        Licencias</th>
-                                    <th class="sorting" tabindex="0" aria-controls="kt_datatable" rowspan="1"
                                         colspan="1" style="width: 850px;"
                                         aria-label="Horario: activate to sort column ascending">
                                         Horario</th>
@@ -176,7 +98,6 @@
                                 <tr>
                                     <th rowspan="1" colspan="1">Laboratorio</th>
                                     <th rowspan="1" colspan="1">Pc</th>
-                                    <th rowspan="1" colspan="1">Licencias</th>
                                     <th rowspan="1" colspan="1">Horario</th>
                                 </tr>
                             </tfoot>
@@ -187,7 +108,6 @@
                                             class="btn btn-transparent-primary font-weight-bold font-size-h3 px-4 py-2">{{lab.room_name}}</button>
                                     </td>
                                     <td>{{lab.room_name}}</td>
-                                    <td>Simio: 24</td>
                                     <td>
                                         <div class="ion-range-slider">
                                             <span class="irs irs--flat js-irs-2 irs-with-grid">
@@ -233,5 +153,3 @@
 
 {% block scripts %}
 {% endblock %}
-
-</html>

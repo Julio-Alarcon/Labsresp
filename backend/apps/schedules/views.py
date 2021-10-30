@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from apps.core.models import Room, Campus
@@ -27,9 +28,8 @@ def reserva(request):
 def administrar(request):
     template_name="administrar.html"
     context={}
-    viewpetition=LabPetition.objects.all().order_by('campus_petition')
-    print(viewpetition)
-    context['labform']=viewpetition
+    labpetition=LabPetition.objects.all()
+    context['labpetition']=labpetition
     return render(request, template_name, context)
 
 def reservar(request):
@@ -40,16 +40,13 @@ def reservar(request):
         if form_lab.is_valid():
             form_lab.save()
             return HttpResponseRedirect(reverse('calendario'))
+        else:
+            print(form_lab.errors)
+            messages.error(request, "Error")
     context['formlab']=LabPetitionForms()
     return render(request, template_name, context)
 
 def admincalendario(request):
     template_name="admincalendario.html"
     context={}
-    if request.POST:
-        form_lab=LabPetitionForms(request.POST)
-        if form_lab.is_valid():
-            form_lab.save()
-            return HttpResponseRedirect(reverse('calendario'))
-    context['formlab']=LabPetitionForms()
     return render(request, template_name, context)

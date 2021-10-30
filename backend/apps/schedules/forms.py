@@ -1,11 +1,11 @@
 from django import forms
 from django.db.models.base import Model
-from django.db.models.fields import DateField
+from django.db.models.fields import DateField, EmailField
 from django.forms import fields
-from datetime import datetime
+from datetime import date, datetime
 from django.forms import widgets
 from django.forms.forms import Form
-from django.forms.widgets import DateInput, TimeInput
+from django.forms.widgets import DateInput, EmailInput, TimeInput
 from apps.schedules.models import LabPetition
 from django.forms import ModelForm, Textarea
 
@@ -25,6 +25,7 @@ class LabPetitionForms(forms.ModelForm):
             'time_start_petition',
             'time_finish_petition',
             'memo_petition',
+            'status_petition',
         ]
         labels = {
             'name_petition':'Nombre:',
@@ -39,14 +40,16 @@ class LabPetitionForms(forms.ModelForm):
             'time_start_petition':'Hora inicio:',
             'time_finish_petition':'Hora termino:',
             'memo_petition':'Mensaje:',
+            'status_petition':'Status:',
         }
 
         widgets={
-            'memo_petition':Textarea(attrs={'cols': 40, 'rows': 5}),
-            'day_start_petition':DateInput(attrs={'id':'kt_datepicker_3', 'data-date-format':'mm/dd/yyyy', 'readonly':'readonly'}),
-            'day_finish_petition':DateInput(attrs={'id':'kt_datepicker_3', 'data-date-format':'mm/dd/yyyy', 'readonly':'readonly'}),
+            'email_petition':EmailInput(attrs={}),
+            'day_start_petition':DateInput(attrs={'id':'kt_datepicker_7', 'data-date-format':'dd/mm/yyyy', 'readonly':'readonly'}),
+            'day_finish_petition':DateInput(attrs={'id':'kt_datepicker_7', 'data-date-format':'dd/mm/yyyy', 'readonly':'readonly'}),
             'time_start_petition':TimeInput(attrs={'id':'kt_timepicker_5'}),
-            'time_finish_petition':TimeInput(attrs={'id':'kt_timepicker_5'})
+            'time_finish_petition':TimeInput(attrs={'id':'kt_timepicker_5'}),
+            'memo_petition':Textarea(attrs={'cols': 40, 'rows': 5})
         }
 
     def __init__(self,*args, **kwargs):

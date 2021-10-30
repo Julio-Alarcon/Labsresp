@@ -18,242 +18,271 @@
 
 <body>
     <div class="card card-custom gutter-b">
-        <div class="card-header">
-            <div class="card-title">
-                <form class="form" id="kt_form_1" action="/formulario" method="POST">
-                    <div class="col-lg-8">
-                        <div class="col-lg-12">
-                            <label for="name">Nombre:</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i
-                                            class="la la-user"></i></span>
-                                </div>
-                                <input id="name" name="name_petition" type="text" class="form-control"
-                                    placeholder="Ej: Juanito Perez Silva" />
+        <!--<div class="card-header"></div>-->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="card card-custom card-stretch gutter-b">
+                        <div class="card-header border-0">
+                            <h1 class="card-title font-weight-bolder text-dark">Peticiones</h1>
+                            <form class="form-inline">
+                                <input class="form-control my-2 mx-2" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <button class="btn btn-outline-success my-2 mx-2" type="submit">Buscar</button>
+                            </form>
+                            <div class="card-toolbar">
+                                <ul class="nav nav-tabs nav-bold nav-tabs-line">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" role="tab" href="#first-tab" aria-selected="false">
+                                            <span class="nav-icon"><i class="flaticon2-chat-1"></i></span>
+                                            <span class="nav-text">Pendientes</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" role="tab" href="#second-tab" aria-selected="false">
+                                            <span class="nav-icon"><i class="flaticon2-chat-1"></i></span>
+                                            <span class="nav-text">Rechazadas</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" role="tab"href="#third-tab" aria-selected="false">
+                                            <span class="nav-icon"><i class="flaticon2-chat-1"></i></span>
+                                            <span class="nav-text">Aceptadas</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <label for="email">Email:</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i
-                                            class="la la-info-circle"></i></span>
-                                </div>
-                                <input id="email" name="email_petition" type="email" class="form-control"
-                                    placeholder="Ej: Ejemplo@Ejemplo.ej" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <label for="nrc">NRC:</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i
-                                            class="flaticon2-browser"></i></span>
-                                </div>
-                                <input id="nrc" name="nrc_petition" type="number" class="form-control" name="digits"
-                                    placeholder="Ej: 7573" />
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <label for="lab">Laboratorio:</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i
-                                            class="flaticon2-browser"></i></span>
-                                </div>
-                                <input id="lab" name="lab_petition" type="number" class="form-control" name="digits"
-                                    placeholder="Ej: 301" />
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <label for="pc">Computadores:</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i
-                                            class="flaticon2-browser"></i></span>
-                                </div>
-                                <input id="pc" name="pc_petition" type="number" class="form-control" name="digits"
-                                    placeholder="Ej: 26" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-lg-8">
-                                <label>Hora Inicio:</label>
-                                <div class="input-group date" id="kt_datetimepicker_7_1" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input"
-                                        placeholder="Start date" data-target="#kt_datetimepicker_7_1" />
-                                    <div class="input-group-append" data-target="#kt_datetimepicker_7_1"
-                                        data-toggle="datetimepicker">
-                                        <span class="input-group-text">
-                                            <i class="ki ki-calendar"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <label>Hora Termino:</label>
-                                <div class="input-group date" id="kt_datetimepicker_7_2" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" placeholder="End date"
-                                        data-target="#kt_datetimepicker_7_2" />
-                                    <div class="input-group-append" data-target="#kt_datetimepicker_7_2"
-                                        data-toggle="datetimepicker">
-                                        <span class="input-group-text">
-                                            <i class="ki ki-calendar"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <label>Mensaje:</label>
-                            <textarea class="form-control" name="memo" placeholder="Razones para la reserva"
-                                rows="3"></textarea>
-                        </div>
-                        <div class="col-lg-3">
-                            <label>Licencias:</label>
-                            <select class="form-control" name="option">
-                                <option value="">Select</option>
-                                <option>Simio 1</option>
-                                <option>Ej 2</option>
-                                <option>Ej 3</option>
-                                <option>Ej 4</option>
-                                <option>Ej 5</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-                <div class="card card-custom card-stretch gutter-b">
-                    <!--begin::Header-->
-                    <div class="card-header border-0">
-                        <h3 class="card-title font-weight-bolder text-dark">Notifications</h3>
-                        <div class="card-toolbar">
-                            <tr>
-                                <th>Sede</th>
-                                <th>Laboratorio</th>
-                                <th>PC</th>
-                                <th>Licencia</th>
-                            </tr>
-                            </thead>
-                            {% for c in labform %}
-                            <tr>
-                                <td>{{c.campus_petition}}</td>
-                               <td>{{c.laboratory_petition}}</td>
-                               <td>{{c.pc_petition}}</td>
-                               <td>{{c.license_petition}}</td>
-                            </tr>
-                            {% endfor %}
-                            <div class="dropdown dropdown-inline">
-                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="ki ki-bold-more-ver"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                                    <!--begin::Naviigation-->
-                                    <ul class="navi">
-                                        <li class="navi-header font-weight-bold py-5">
-                                            <span class="font-size-lg">Add New:</span>
-                                            <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip"
-                                                data-placement="right" title=""
-                                                data-original-title="Click to learn more..."></i>
+                        <div class="tab-content card-scroll" style="height: 480px;">
+                            <div class="tab-pane fade active show" id="first-tab" role="tabpanel">
+                                <div class="flex-column card-stretch gutter-b">
+                                    <ul class="nav nav-warning nav-pills nav-fill" role="tablist">
+                                        {% for labpetition in labpetition %}
+                                        {% if labpetition.status_petition == "P" %}
+                                        <li class="nav-item">
+                                            <div class="nav-link d-flex text-left" data-toggle="tab" role="tab"
+                                                aria-selected="false" href="#href{{labpetition.id}}"
+                                                id="id{{labpetition.id}}">
+                                                <span class="bullet bullet-bar bg-warning align-self-stretch"></span>
+                                                <div class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2"><h4>{{ labpetition.name_petition }}</h4>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.campus_petition }}</th>
+                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.day_start_petition }} - {{labpetition.day_finish_petition }}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.laboratory_petition }}</th>
+                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.time_start_petition }} - {{labpetition.time_finish_petition }}</th>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </li>
-                                        <li class="navi-separator mb-3 opacity-70"></li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-                                                <span class="navi-icon">
-                                                    <i class="flaticon2-shopping-cart-1"></i>
-                                                </span>
-                                                <span class="navi-text">Order</span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-                                                <span class="navi-icon">
-                                                    <i class="navi-icon flaticon2-calendar-8"></i>
-                                                </span>
-                                                <span class="navi-text">Members</span>
-                                                <span class="navi-label">
-                                                    <span
-                                                        class="label label-light-danger label-rounded font-weight-bold">3</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-                                                <span class="navi-icon">
-                                                    <i class="navi-icon flaticon2-telegram-logo"></i>
-                                                </span>
-                                                <span class="navi-text">Project</span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-item">
-                                            <a href="#" class="navi-link">
-                                                <span class="navi-icon">
-                                                    <i class="navi-icon flaticon2-new-email"></i>
-                                                </span>
-                                                <span class="navi-text">Record</span>
-                                                <span class="navi-label">
-                                                    <span
-                                                        class="label label-light-success label-rounded font-weight-bold">5</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="navi-separator mt-3 opacity-70"></li>
-                                        <li class="navi-footer pt-5 pb-4">
-                                            <a class="btn btn-light-primary font-weight-bolder btn-sm" href="#">More
-                                                options</a>
-                                            <a class="btn btn-clean font-weight-bold btn-sm d-none" href="#"
-                                                data-toggle="tooltip" data-placement="right" title=""
-                                                data-original-title="Click to learn more...">Learn more</a>
-                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
                                     </ul>
-                                    <!--end::Naviigation-->
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="second-tab" role="tabpanel">
+                                <div class="flex-column card-stretch gutter-b">
+                                    <ul class="nav nav-danger nav-pills nav-fill" role="tablist">
+                                        {% for labpetition in labpetition %}
+                                        {% if labpetition.status_petition == "R" %}
+                                        <li class="nav-item">
+                                            <div class="nav-link d-flex text-left" data-toggle="tab" role="tab" aria-selected="false" href="#href{{labpetition.id}}" id="id{{labpetition.id}}">
+                                                <span
+                                                    class="bullet bullet-bar bg-danger align-self-stretch"></span>
+                                                <div
+                                                    class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2">
+                                                    <h4>{{ labpetition.name_petition }}</h4>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.campus_petition }}</th>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.day_start_petition }} -{{ labpetition.day_finish_petition }}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.laboratory_petition }}</th>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.time_start_petition }} -{{ labpetition.time_finish_petition }}</th>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="third-tab" role="tabpanel">
+                                <div class="flex-column card-stretch gutter-b">
+                                    <ul class="nav nav-success nav-pills nav-fill" role="tablist">
+                                        {% for labpetition in labpetition %}
+                                        {% if labpetition.status_petition == "A" %}
+                                        <li class="nav-item">
+                                            <div class="nav-link d-flex text-left" data-toggle="tab" role="tab" aria-selected="false" href="#href{{labpetition.id}}" id="id{{labpetition.id}}">
+                                                <span class="bullet bullet-bar bg-success align-self-stretch"></span>
+                                                <div class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2">
+                                                    <h4>{{ labpetition.name_petition }}</h4>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.campus_petition }}</th>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.day_start_petition }} - {{ labpetition.day_finish_petition }}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.laboratory_petition }}</th>
+                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.time_start_petition }} - {{ labpetition.time_finish_petition }}</th>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--end::Header-->
-                    <!--begin::Body-->
-                    <div class="card-body pt-0">
-                        <!--begin::Item-->
-                        <div class="mb-6">
-                            <!--begin::Content-->
-                            {% for personas in Petition %}
-                            <div class="d-flex align-items-center flex-grow-1">
-                                <!--begin::Checkbox-->
-                                <label class="checkbox checkbox-lg checkbox-lg flex-shrink-0 mr-4">
-                                    <input type="checkbox" value="{{reserva.id}}">
-                                    <span></span>
-                                </label>
-                                <!--end::Checkbox-->
-                                <!--begin::Section-->
-                                <div class="d-flex flex-wrap align-items-center justify-content-between w-100">
-                                    <!--begin::Info-->
-                                    <div class="d-flex flex-column align-items-cente py-2 w-75">
-                                        <!--begin::Title-->
-                                        <a href="#"
-                                            class="text-dark-75 font-weight-bold text-hover-primary font-size-lg mb-1">{{
-                                            Petition.name }}</a>
-                                        <!--end::Title-->
-                                        <!--begin::Data-->
-                                        <span class="text-muted font-weight-bold">Reserva en 2 Dias</span>
-                                        <!--end::Data-->
+                </div>
+                <div class="col-lg-6">
+                    <div class="tab-content">
+                        {% for labpetition in labpetition %}
+                        <div class="tab-pane" role="tabpanel" id="href{{labpetition.id}}" aria-labelledby="id{{labpetition.id}}">
+                            <div class="card card-custom card-stretch gutter-b">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between flex-column pt-4 h-100">
+                                        <div class="pb-5">
+                                            <div class="d-flex flex-column flex-center">
+                                                <a class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h2 m-0 pt-5">{{ labpetition.name_petition }}</a>
+                                                <div class="font-weight-bold text-dark-50 font-size-lg pb-2">{{ labpetition.email_petition }}</div>
+                                            <div class="text-dark-50 font-size-sm pb-4">Dia y Hora de la peticion: --------</div></div>
+                                            <div class="pt-1">
+'                                                <div class="d-flex align-items-center pb-5">
+                                                    <span class="bullet bullet-bar bg-primary align-self-stretch"></span>
+                                                    <span class="text-dark-75 font-weight-nirmal font-size-lg m-0 pb-2 mx-2">{{ labpetition.memo_petition }}</span>
+                                                </div>
+                                                
+                                                <!--AQUI COMIENZA-->
+                                                <div class="d-flex align-items-center pb-5">
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon2-map"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Sede:</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.campus_petition }}</span>
+                                                    </div>
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon2-search"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Laboratorio:</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.laboratory_petition }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center pb-5">
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon2-browser"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">NRC:</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.nrc_petition }}</span>
+                                                    </div>
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon-download-1"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Cantidad de PCs</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.cant_pc_petition }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center pb-5">
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon2-calendar-1"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Dia Inicio:</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.day_start_petition }}</span>
+                                                    </div>
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon2-calendar-1"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Dia Final:</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.day_finish_petition }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center pb-5">
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon2-chronometer"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Hora Inicio:</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.time_start_petition }}</span>
+                                                    </div>
+                                                    <div class="symbol symbol-45 symbol-light mr-2">
+                                                        <span class="nav-icon input-group-text"><i class="flaticon2-chronometer"></i></span>
+                                                    </div>
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Hora Final:</a>
+                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.time_finish_petition }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% if labpetition.status_petition == "P" %}
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-lg-9 ml-lg-auto">
+                                                    <div class="login-actions">
+                                                        <button type="submit" class="btn btn-light-success font-weight-bold" id="kt_sweetalert_demo_3_3">Aceptar</button>
+                                                        <button class="btn btn-light-danger font-weight-bold">Rechazar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if labpetition.status_petition == "R" %}
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-lg-9 ml-lg-auto">
+                                                    <div class="login-actions">
+                                                        <button type="submit" class="btn btn-light-success font-weight-bold" id="kt_sweetalert_demo_3_3">Aceptar</button>
+                                                        <button class="btn btn-light-warning font-weight-bold">Pendiente</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if labpetition.status_petition == "A" %}
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-lg-9 ml-lg-auto">
+                                                    <div class="login-actions">
+                                                        <button type="submit" class="btn btn-light-warning font-weight-bold" id="kt_sweetalert_demo_3_3">Pendiente</button>
+                                                        <button class="btn btn-light-danger font-weight-bold">Rechazar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        <!--end::Footer-->
                                     </div>
-                                    <!--end::Info-->
-                                    <!--begin::Label-->
-                                    <span
-                                        class="label label-lg label-light-primary label-inline font-weight-bold py-4">Approved</span>
-                                    <!--end::Label-->
+                                    <!--end::Wrapper-->
                                 </div>
-                                <!--end::Section-->
+                                <!--end::Body-->
                             </div>
-                            <!--end::Content-->
-                            {% endfor %}
                         </div>
-                        <!--end::Item-->
+                        {% endfor %}
                     </div>
-                    <!--end: Card Body-->
                 </div>
             </div>
         </div>
+        
     </div>
 </body>
 {% endblock %}
 
 {% block scripts %}
+<script src="{%static 'js/pages/crud/forms/widgets/engage_code.js'%}"></script>
 {% endblock %}

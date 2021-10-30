@@ -27,7 +27,7 @@ class LabPetition(models.Model):
         ('R','Rechazado'),
     )
     name_petition = models.CharField(max_length=50, default="")
-    email_petition = models.CharField(max_length=100, default="")
+    email_petition = models.CharField(max_length=150, default="")
     nrc_petition = models.CharField(max_length=10, default="", blank=True)
     campus_petition = models.ForeignKey(Campus, on_delete=models.SET_NULL, null=True)
     laboratory_petition = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True, blank=True)
@@ -37,7 +37,7 @@ class LabPetition(models.Model):
     day_finish_petition = models.DateField(null=True)
     time_start_petition = models.TimeField(null=True)
     time_finish_petition = models.TimeField(null=True)
-    memo_petition = models.CharField(max_length=250, default="")
+    memo_petition = models.CharField(max_length=250, default="", null=True)
     #license_petition = models.CharField(max_length=50, choices=licenses)
     status_petition = models.CharField(max_length=1, default="P", choices=STATUS_PETITION, blank=True)
 

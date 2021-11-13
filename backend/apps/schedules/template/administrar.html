@@ -25,9 +25,8 @@
                     <div class="card card-custom card-stretch gutter-b">
                         <div class="card-header border-0">
                             <h1 class="card-title font-weight-bolder text-dark">Peticiones</h1>
-                            <form class="form-inline">
-                                <input class="form-control my-2 mx-2" type="search" placeholder="Search"
-                                    aria-label="Search">
+                            <form method="get" class="form-inline">
+                                <input class="form-control my-2 mx-2" type="search" placeholder="Buscar..." aria-label="Search">
                                 <button class="btn btn-outline-success my-2 mx-2" type="submit">Buscar</button>
                             </form>
                             <div class="card-toolbar">
@@ -57,25 +56,15 @@
                         <div class="tab-content card-scroll" style="height: 480px;">
                             <div class="tab-pane fade active show" id="first-tab" role="tabpanel">
                                 <div class="flex-column card-stretch gutter-b">
-                                    <ul class="nav nav-warning nav-pills nav-fill" role="tablist">
+                                    <ul class="nav flex-column nav-warning nav-pills nav-fill" role="tablist">
                                         {% for labpetition in labpetition %}
                                         {% if labpetition.status_petition == "P" %}
                                         <li class="nav-item">
-                                            <div class="nav-link d-flex text-left" data-toggle="tab" role="tab"
-                                                aria-selected="false" href="#href{{labpetition.id}}"
-                                                id="id{{labpetition.id}}">
+                                            <div class="nav-link d-flex text-left" data-toggle="tab" role="tab" aria-selected="false" href="#href{{labpetition.id}}" id="id{{labpetition.id}}">
                                                 <span class="bullet bullet-bar bg-warning align-self-stretch"></span>
                                                 <div class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2"><h4>{{ labpetition.name_petition }}</h4>
-                                                    <table>
-                                                        <tr>
-                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.campus_petition }}</th>
-                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.day_start_petition }} - {{labpetition.day_finish_petition }}</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.laboratory_petition }}</th>
-                                                            <th class="text-dark font-weight-bold mx-4">{{labpetition.time_start_petition }} - {{labpetition.time_finish_petition }}</th>
-                                                        </tr>
-                                                    </table>
+                                                    <div class="text-dark font-weight-bold mx-4">{{labpetition.campus_petition }}</div>
+                                                    <div class="text-dark font-weight-bold mx-4">{{labpetition.laboratory_petition }}</div>
                                                 </div>
                                             </div>
                                         </li>
@@ -86,26 +75,15 @@
                             </div>
                             <div class="tab-pane fade" id="second-tab" role="tabpanel">
                                 <div class="flex-column card-stretch gutter-b">
-                                    <ul class="nav nav-danger nav-pills nav-fill" role="tablist">
+                                    <ul class="nav flex-column nav-danger nav-pills nav-fill" role="tablist">
                                         {% for labpetition in labpetition %}
                                         {% if labpetition.status_petition == "R" %}
                                         <li class="nav-item">
                                             <div class="nav-link d-flex text-left" data-toggle="tab" role="tab" aria-selected="false" href="#href{{labpetition.id}}" id="id{{labpetition.id}}">
-                                                <span
-                                                    class="bullet bullet-bar bg-danger align-self-stretch"></span>
-                                                <div
-                                                    class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2">
-                                                    <h4>{{ labpetition.name_petition }}</h4>
-                                                    <table>
-                                                        <tr>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.campus_petition }}</th>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.day_start_petition }} -{{ labpetition.day_finish_petition }}</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.laboratory_petition }}</th>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.time_start_petition }} -{{ labpetition.time_finish_petition }}</th>
-                                                        </tr>
-                                                    </table>
+                                                <span class="bullet bullet-bar bg-danger align-self-stretch"></span>
+                                                <div class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2"><h4>{{ labpetition.name_petition }}</h4>
+                                                    <div class="text-dark font-weight-bold mx-4">{{labpetition.campus_petition }}</div>
+                                                    <div class="text-dark font-weight-bold mx-4">{{labpetition.laboratory_petition }}</div>
                                                 </div>
                                             </div>
                                         </li>
@@ -116,24 +94,15 @@
                             </div>
                             <div class="tab-pane fade" id="third-tab" role="tabpanel">
                                 <div class="flex-column card-stretch gutter-b">
-                                    <ul class="nav nav-success nav-pills nav-fill" role="tablist">
+                                    <ul class="nav flex-column nav-success nav-pills nav-fill" role="tablist">
                                         {% for labpetition in labpetition %}
                                         {% if labpetition.status_petition == "A" %}
                                         <li class="nav-item">
                                             <div class="nav-link d-flex text-left" data-toggle="tab" role="tab" aria-selected="false" href="#href{{labpetition.id}}" id="id{{labpetition.id}}">
                                                 <span class="bullet bullet-bar bg-success align-self-stretch"></span>
-                                                <div class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2">
-                                                    <h4>{{ labpetition.name_petition }}</h4>
-                                                    <table>
-                                                        <tr>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.campus_petition }}</th>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.day_start_petition }} - {{ labpetition.day_finish_petition }}</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.laboratory_petition }}</th>
-                                                            <th class="text-dark font-weight-bold mx-4">{{ labpetition.time_start_petition }} - {{ labpetition.time_finish_petition }}</th>
-                                                        </tr>
-                                                    </table>
+                                                <div class="d-flex flex-column flex-grow-1 flex-shrink-0 m-0 mx-2"><h4>{{ labpetition.name_petition }}</h4>
+                                                    <div class="text-dark font-weight-bold mx-4">{{labpetition.campus_petition }}</div>
+                                                    <div class="text-dark font-weight-bold mx-4">{{labpetition.laboratory_petition }}</div>
                                                 </div>
                                             </div>
                                         </li>
@@ -152,120 +121,121 @@
                             <div class="card card-custom card-stretch gutter-b">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between flex-column pt-4 h-100">
-                                        <div class="pb-5">
-                                            <div class="d-flex flex-column flex-center">
-                                                <a class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h2 m-0 pt-5">{{ labpetition.name_petition }}</a>
-                                                <div class="font-weight-bold text-dark-50 font-size-lg pb-2">{{ labpetition.email_petition }}</div>
-                                            <div class="text-dark-50 font-size-sm pb-4">Dia y Hora de la peticion: --------</div></div>
-                                            <div class="pt-1">
-'                                                <div class="d-flex align-items-center pb-5">
-                                                    <span class="bullet bullet-bar bg-primary align-self-stretch"></span>
-                                                    <span class="text-dark-75 font-weight-nirmal font-size-lg m-0 pb-2 mx-2">{{ labpetition.memo_petition }}</span>
-                                                </div>
-                                                
-                                                <!--AQUI COMIENZA-->
-                                                <div class="d-flex align-items-center pb-5">
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon2-map"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Sede:</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.campus_petition }}</span>
-                                                    </div>
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon2-search"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Laboratorio:</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.laboratory_petition }}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-center pb-5">
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon2-browser"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">NRC:</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.nrc_petition }}</span>
-                                                    </div>
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon-download-1"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Cantidad de PCs</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.cant_pc_petition }}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-center pb-5">
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon2-calendar-1"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Dia Inicio:</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.day_start_petition }}</span>
-                                                    </div>
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon2-calendar-1"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Dia Final:</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.day_finish_petition }}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-center pb-5">
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon2-chronometer"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Hora Inicio:</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.time_start_petition }}</span>
-                                                    </div>
-                                                    <div class="symbol symbol-45 symbol-light mr-2">
-                                                        <span class="nav-icon input-group-text"><i class="flaticon2-chronometer"></i></span>
-                                                    </div>
-                                                    <div class="d-flex flex-column flex-grow-1">
-                                                        <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Hora Final:</a>
-                                                        <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.time_finish_petition }}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         {% if labpetition.status_petition == "P" %}
-                                        <div class="card-footer">
-                                            <div class="row">
-                                                <div class="col-lg-9 ml-lg-auto">
-                                                    <div class="login-actions">
-                                                        <button type="submit" class="btn btn-light-success font-weight-bold" id="kt_sweetalert_demo_3_3">Aceptar</button>
-                                                        <button class="btn btn-light-danger font-weight-bold">Rechazar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="d-flex bg-light-warning rounded-xl flex-column flex-center py-2">
+                                            <a class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h2 m-0 pt-5">{{ labpetition.name_petition }}</a>
+                                            <div class="font-weight-bold text-dark-50 font-size-lg pb-2">{{ labpetition.email_petition }}</div>
+                                            <div class="text-dark-50 font-size-sm pb-4">Dia y Hora de la peticion: --------</div>
                                         </div>
                                         {% endif %}
                                         {% if labpetition.status_petition == "R" %}
-                                        <div class="card-footer">
-                                            <div class="row">
-                                                <div class="col-lg-9 ml-lg-auto">
-                                                    <div class="login-actions">
-                                                        <button type="submit" class="btn btn-light-success font-weight-bold" id="kt_sweetalert_demo_3_3">Aceptar</button>
-                                                        <button class="btn btn-light-warning font-weight-bold">Pendiente</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="d-flex bg-light-danger rounded-xl flex-column flex-center py-2">
+                                            <a class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h2 m-0 pt-5">{{ labpetition.name_petition }}</a>
+                                            <div class="font-weight-bold text-dark-50 font-size-lg pb-2">{{ labpetition.email_petition }}</div>
+                                            <div class="text-dark-50 font-size-sm pb-4">Dia y Hora de la peticion: --------</div>
                                         </div>
                                         {% endif %}
                                         {% if labpetition.status_petition == "A" %}
-                                        <div class="card-footer">
+                                        <div class="d-flex bg-light-success rounded-xl flex-column flex-center py-2">
+                                            <a class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h2 m-0 pt-5">{{ labpetition.name_petition }}</a>
+                                            <div class="font-weight-bold text-dark-50 font-size-lg pb-2">{{ labpetition.email_petition }}</div>
+                                            <div class="text-dark-50 font-size-sm pb-4">Dia y Hora de la peticion: --------</div>
+                                        </div>
+                                        {% endif %}
+                                        <div class="pt-6">
+                                            <div class="d-flex align-items-center pb-5">
+                                                <span class="bullet bullet-bar bg-primary align-self-stretch"></span>
+                                                <span class="card-scroll text-dark-75 font-size-lg m-0 pb-2 mx-2">{{ labpetition.memo_petition }}</span>
+                                            </div>
+                                            <!--AQUI COMIENZA-->
                                             <div class="row">
-                                                <div class="col-lg-9 ml-lg-auto">
-                                                    <div class="login-actions">
-                                                        <button type="submit" class="btn btn-light-warning font-weight-bold" id="kt_sweetalert_demo_3_3">Pendiente</button>
-                                                        <button class="btn btn-light-danger font-weight-bold">Rechazar</button>
+                                                <div class="col-lg-6">
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon2-map"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Sede:</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.campus_petition }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon2-search"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Laboratorio:</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.laboratory_petition }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon-download-1"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Cantidad de PCs</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.cant_pc_petition }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon2-browser"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">NRC:</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.nrc_petition }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="d-flex flex-column flex-grow-1">
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon2-calendar-1"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Dia Inicio:</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.day_start_petition }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon2-calendar-1"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Dia Final:</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.day_finish_petition }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon2-chronometer"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Hora Inicio:</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.time_start_petition }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center pb-5">
+                                                            <div class="symbol symbol-45 symbol-light mr-2">
+                                                                <span class="nav-icon input-group-text"><i class="flaticon2-chronometer"></i></span>
+                                                            </div>
+                                                            <div class="d-flex flex-column flex-grow-1">
+                                                                <a class="text-muted text-hover-primary font-size-sm font-weight-bolder">Hora Final:</a>
+                                                                <span class="text-dark-75 font-size-lg font-weight-bolder">{{ labpetition.time_finish_petition }}</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        {% endif %}
+                                        <div class="row pt-4">
+                                            <div class="ml-lg-auto">
+                                                <a href="{% url 'administrarid' labpetition.id %}" class="btn btn-light-success font-weight-bold">Modificar</a>
+                                            </div>
+                                        </div>
                                         <!--end::Footer-->
                                     </div>
                                     <!--end::Wrapper-->
@@ -285,4 +255,15 @@
 
 {% block scripts %}
 <script src="{%static 'js/pages/crud/forms/widgets/engage_code.js'%}"></script>
+<script>
+    $("#first-tab").click(function(){
+        $(".nav-link").removeClass("active");
+    });
+    $("#second-tab").click(function(){
+        $(".nav-link").removeClass("active");
+    });
+    $("#third-tab").click(function(){
+        $(".nav-link").removeClass("active");
+    });
+</script>
 {% endblock %}
